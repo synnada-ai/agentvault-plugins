@@ -48,22 +48,24 @@ public OpenAI submission bundles**.
    including the license in each package. The separately installed Vault app
    retains its own terms. Repository visibility does not establish directory
    approval.
-6. When ready to release, create a version tag and a GitHub release from that
-   commit and attach the four ZIPs and `SHA256SUMS`. For the initial version:
+6. The prepared 0.1.1 GitHub release is a **draft**, targeting tested package
+   commit `6e0e3ded804cefb19b362736e5818c99cc061d48`. It contains the four ZIPs
+   and `SHA256SUMS`. Complete the interactive acceptance checks before
+   publishing. An authorized maintainer can publish the draft in GitHub's
+   Releases UI or with:
 
    ```sh
-   git tag v0.1.1
-   git push origin v0.1.1
-   gh release create v0.1.1 dist/agentvault-*-0.1.1.zip dist/SHA256SUMS \
-     --title 'Agent Vault plugins 0.1.1' --notes-file CHANGELOG.md
+   gh release edit v0.1.1 --repo synnada-ai/agentvault-plugins --draft=false
    ```
 
-   These are instructions, not actions performed by the build or CI. Keep the
-   plugin packages in this repository; do not move them into the private
-   client/server repositories. CI uploads checked ZIP artifacts but never
-   publishes a release or submits to a directory.
+   This is a manual publication step, not performed by the build or CI.
+   Future releases need a new version, commit, draft, and matching Hermes SHA
+   update. Keep the packages in this repository; no other repository is
+   needed. CI uploads checked ZIP artifacts without publishing releases.
 
 ## Cursor
+
+Prepared listing copy: [submissions/cursor.md](submissions/cursor.md).
 
 The repository has `.cursor-plugin/marketplace.json` pointing to
 `plugins/cursor`. A team with repository access can import that marketplace;
@@ -123,6 +125,8 @@ Do not repackage private app source or its binary just to satisfy an example
 server layout, and do not replace the local server with an invented HTTPS URL.
 
 ## Claude Code
+
+Prepared distribution notes: [submissions/claude-code.md](submissions/claude-code.md).
 
 `.claude-plugin/marketplace.json` already points to `plugins/claude-code`.
 Once the repository is reachable, users can install from your marketplace:

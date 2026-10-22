@@ -10,9 +10,10 @@ is the distribution route for this Claude Code package:
 
 No Anthropic directory approval is required for repository marketplace
 distribution. Both the native plugin and marketplace pass strict validation.
-A clean installation in a disposable `CLAUDE_CONFIG_DIR` installs version
-0.1.1, enables the plugin, exposes the expected local MCP declaration, and
-correctly reports the required unset token configuration.
+Clean local and public Git installations in disposable `CLAUDE_CONFIG_DIR`
+profiles install version 0.1.1, enable the plugin, expose the expected local
+MCP declaration, and
+correctly report the required unset token configuration.
 
 Users need the separately installed, running Agent Vault macOS app. Configure
 the Claude Code binding token and paths through the plugin's `userConfig`;

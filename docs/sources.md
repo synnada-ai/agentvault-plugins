@@ -44,8 +44,9 @@ and public review approval remain separate from package-format support.
 - Codex CLI **0.151.0**: disposable marketplace installation and native
   app-server search, pinned read, and revoked-call checks pass. No inference
   turn or user account archive is used.
-- Claude Code **2.1.283**: native plugin and marketplace validators pass, and a disposable local marketplace
-  installation loads version 0.1.1 and exposes the expected Vault MCP declaration.
+- Claude Code **2.1.283**: native plugin and marketplace validators pass.
+  Disposable local and public Git marketplace installations load version
+  0.1.1 and expose the expected Vault MCP declaration.
   Its interactive configuration prompt and agent-driven skill invocation
   still need a clean-install acceptance run before public publication.
 - Cursor IDE **3.26.13** is installed. Its documented native package layout is
@@ -54,8 +55,11 @@ and public review approval remain separate from package-format support.
 - Installed Hermes **0.18.2** predates this portable format and was not changed.
   The official **0.22.4** checkout's portable parser and actual directory
   discovery validate the package using an isolated check. Its catalog admission
-  validator also passes, with a safe security scan and no warnings. A full agent session
-  and Desktop secret-configuration acceptance run remain release checks.
+  validator also passes, with a safe security scan and no warnings. A clean
+  public Git install pinned to
+  `6e0e3ded804cefb19b362736e5818c99cc061d48` also installs 0.1.1, disabled
+  as requested. A full agent session and Desktop secret-configuration
+  acceptance run remain release checks.
 - Eight repository tests cover generation, host configuration, credential-free
   archives, launcher error redaction, quoting, identity, and syntax. Synthetic
   real-server tests cover all four caller identities, cross-client search,
