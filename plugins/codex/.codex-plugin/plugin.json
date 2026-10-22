@@ -1,0 +1,29 @@
+{
+  "name": "agentvault",
+  "version": "0.1.0",
+  "description": "Find prior coding conversations and retrieve exact session revisions from Agent Vault.",
+  "author": {
+    "name": "Synnada"
+  },
+  "repository": "https://github.com/synnada-ai/agentvault-plugins",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Agent Vault",
+    "shortDescription": "Retrieve past coding sessions",
+    "longDescription": "Find prior coding conversations and retrieve exact session revisions from Agent Vault. Requires the installed macOS Agent Vault app, a running Vault session, and a binding token for this client.",
+    "developerName": "Synnada",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Search archived sessions",
+      "Read exact session revisions"
+    ],
+    "defaultPrompt": [
+      "Find our earlier discussion about authentication.",
+      "Recover context from my earlier coding sessions."
+    ],
+    "logo": "./assets/logo.svg",
+    "composerIcon": "./assets/logo.svg"
+  },
+  "requires_local_executor": true
+}

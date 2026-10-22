@@ -1,0 +1,17 @@
+{
+  "name": "synnada-agentvault",
+  "owner": {
+    "name": "Synnada"
+  },
+  "metadata": {
+    "description": "Agent Vault retrieval plugins maintained by Synnada."
+  },
+  "plugins": [
+    {
+      "name": "agentvault",
+      "source": "./plugins/cursor",
+      "description": "Find prior coding conversations and retrieve exact session revisions from Agent Vault.",
+      "version": "0.1.0"
+    }
+  ]
+}

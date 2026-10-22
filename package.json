@@ -1,0 +1,16 @@
+{
+  "name": "agentvault-plugins",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent Vault retrieval plugins for Cursor, Codex, Claude Code, and Hermes",
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "test": "node --test test/*.test.mjs",
+    "package": "node scripts/package.mjs",
+    "test:vault": "node --test test/vault.integration.mjs",
+    "test:codex": "node --test test/codex.integration.mjs"
+  }
+}

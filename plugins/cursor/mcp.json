@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "vault": {
+      "type": "stdio",
+      "command": "sh",
+      "args": [
+        "${CURSOR_PLUGIN_ROOT}/scripts/launch-mcp.sh",
+        "cursor"
+      ],
+      "env": {
+        "VAULT_MCP_TOKEN": "${VAULT_MCP_TOKEN}",
+        "VAULT_HOME": "${VAULT_HOME}",
+        "VAULT_APP_PATH": "${VAULT_APP_PATH}"
+      }
+    }
+  }
+}

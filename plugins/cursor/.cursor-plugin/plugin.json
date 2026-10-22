@@ -1,0 +1,35 @@
+{
+  "name": "agentvault",
+  "version": "0.1.0",
+  "description": "Find prior coding conversations and retrieve exact session revisions from Agent Vault.",
+  "author": {
+    "name": "Synnada"
+  },
+  "repository": "https://github.com/synnada-ai/agentvault-plugins",
+  "logo": "assets/logo.svg",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "VAULT_MCP_TOKEN": {
+        "type": "string",
+        "title": "Vault binding token",
+        "description": "The private token issued by Agent Vault for this client."
+      },
+      "VAULT_HOME": {
+        "type": "string",
+        "title": "Vault home",
+        "description": "Absolute VAULT_HOME from the Vault connection instructions; empty uses ~/.vault.",
+        "default": ""
+      },
+      "VAULT_APP_PATH": {
+        "type": "string",
+        "title": "Agent Vault app",
+        "description": "Absolute path to the installed Agent Vault application.",
+        "default": "/Applications/Agent Vault.app"
+      }
+    },
+    "required": [
+      "VAULT_MCP_TOKEN"
+    ]
+  }
+}

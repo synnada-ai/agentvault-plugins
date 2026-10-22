@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agentvault",
+  "version": "0.1.0",
+  "description": "Find prior coding conversations and retrieve exact session revisions from Agent Vault.",
+  "author": {
+    "name": "Synnada"
+  },
+  "repository": "https://github.com/synnada-ai/agentvault-plugins",
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "config_schema": {
+        "vault_token": {
+          "type": "secret",
+          "env": "VAULT_MCP_TOKEN",
+          "label": "Vault binding token",
+          "description": "The private token issued by Agent Vault for this client."
+        }
+      }
+    }
+  }
+}
