@@ -58,6 +58,13 @@ versioning, current limits, and remaining public-submission materials.
 **22 October 2026**, and distinguishes current docs from the installed versions.
 No public marketplace submission or publication is performed by the build.
 
+## License and support
+
+The plugins, shared retrieval skill, and launcher are [MIT licensed](LICENSE).
+The separately installed Agent Vault app is not included in this repository
+and retains its own terms. [Agent Vault website](https://agentvault.run).
+For plugin issues, use [GitHub Issues](https://github.com/synnada-ai/agentvault-plugins/issues).
+
 Tokens are not part of this repository. Reconnecting a client in Vault rotates
 its binding; installation and plugin updates never rotate one automatically.
 If there is an existing manually installed Vault server, follow the relevant

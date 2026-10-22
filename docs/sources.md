@@ -28,8 +28,12 @@ and public review approval remain separate from package-format support.
   [native manifest parsing](https://github.com/NousResearch/hermes-agent/blob/4d04303818b61bf3aa09278af48356315515965b/hermes_cli/plugins_manifest.py).
   The package uses a bare `sh` command and a plugin-relative cwd. Its real
   directory-discovery test intentionally forbids a YAML shim that would shadow
-  the portable entrypoint in this release. This conflicts with the live catalog
-  admission documentation; see the publishing guide.
+  the portable entrypoint in this release. The live guide's YAML requirement
+  is stale: the released [admission validator](https://github.com/NousResearch/hermes-agent/blob/4d04303818b61bf3aa09278af48356315515965b/hermes_cli/plugin_validate.py#L511)
+  and [catalog CI](https://github.com/NousResearch/hermes-agent/blob/4d04303818b61bf3aa09278af48356315515965b/.github/workflows/plugin-catalog-ci.yml#L251)
+  explicitly accept portable-only packages. The actual validator passes this
+  package, including its security scan; no upstream fix is needed to prepare
+  a catalog entry.
 
 ## Local evidence and limits
 
@@ -40,7 +44,8 @@ and public review approval remain separate from package-format support.
 - Codex CLI **0.151.0**: disposable marketplace installation and native
   app-server search, pinned read, and revoked-call checks pass. No inference
   turn or user account archive is used.
-- Claude Code **2.1.283**: native plugin and marketplace validators pass.
+- Claude Code **2.1.283**: native plugin and marketplace validators pass, and a disposable local marketplace
+  installation loads version 0.1.1 and exposes the expected Vault MCP declaration.
   Its interactive configuration prompt and agent-driven skill invocation
   still need a clean-install acceptance run before public publication.
 - Cursor IDE **3.26.13** is installed. Its documented native package layout is
@@ -48,7 +53,8 @@ and public review approval remain separate from package-format support.
   variable entry, and agent-driven skill invocation have not been certified.
 - Installed Hermes **0.18.2** predates this portable format and was not changed.
   The official **0.22.4** checkout's portable parser and actual directory
-  discovery validate the package using an isolated check. A full agent session
+  discovery validate the package using an isolated check. Its catalog admission
+  validator also passes, with a safe security scan and no warnings. A full agent session
   and Desktop secret-configuration acceptance run remain release checks.
 - Eight repository tests cover generation, host configuration, credential-free
   archives, launcher error redaction, quoting, identity, and syntax. Synthetic

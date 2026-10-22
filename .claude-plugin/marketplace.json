@@ -11,7 +11,7 @@
       "name": "agentvault",
       "source": "./plugins/claude-code",
       "description": "Find prior coding conversations and retrieve exact session revisions from Agent Vault.",
-      "version": "0.1.0"
+      "version": "0.1.1"
     }
   ]
 }

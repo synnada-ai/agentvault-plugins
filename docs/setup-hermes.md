@@ -38,4 +38,4 @@ and load the returned qualified name with `skill_view`. The plugin is disabled
 until explicitly enabled. `plugin.json` and `mcp.json` provide the portable
 skill and MCP entrypoint. Do not add `plugin.yaml` beside them on Hermes 0.22.4:
 that release prioritizes YAML and stops discovering the portable entrypoint.
-See the publishing guide for the resulting catalog-submission limitation.
+The released catalog validator accepts portable-only packages; see the publishing guide.

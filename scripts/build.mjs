@@ -7,7 +7,7 @@ export const clients = ['cursor', 'codex', 'claude-code', 'hermes'];
 const { version } = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
 const repository = 'https://github.com/synnada-ai/agentvault-plugins';
 const description = 'Find prior coding conversations and retrieve exact session revisions from Agent Vault.';
-const identity = { name: 'agentvault', version, description, author: { name: 'Synnada' }, repository };
+const identity = { name: 'agentvault', version, description, author: { name: 'Synnada' }, homepage: 'https://agentvault.run', repository, license: 'MIT' };
 const schema = 'https://agent-plugins.org/schemas/1.0.0/';
 const variables = ['VAULT_MCP_TOKEN', 'VAULT_HOME', 'VAULT_APP_PATH'];
 const interfaceMetadata = {
@@ -45,6 +45,7 @@ function hostOptions() {
 export function generatedFiles() {
   const files = new Map();
   const common = new Map([
+    ['LICENSE', fs.readFileSync(path.join(root, 'LICENSE'), 'utf8')],
     ['skills/vault-retrieval/SKILL.md', fs.readFileSync(path.join(root, 'shared/skills/vault-retrieval/SKILL.md'), 'utf8')],
     ['scripts/launch-mcp.sh', fs.readFileSync(path.join(root, 'shared/launch-mcp.sh'), 'utf8')],
     ['assets/logo.svg', fs.readFileSync(path.join(root, 'shared/assets/logo.svg'), 'utf8')],

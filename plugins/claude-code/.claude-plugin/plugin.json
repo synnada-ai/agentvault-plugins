@@ -1,11 +1,13 @@
 {
   "name": "agentvault",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Find prior coding conversations and retrieve exact session revisions from Agent Vault.",
   "author": {
     "name": "Synnada"
   },
+  "homepage": "https://agentvault.run",
   "repository": "https://github.com/synnada-ai/agentvault-plugins",
+  "license": "MIT",
   "userConfig": {
     "VAULT_MCP_TOKEN": {
       "type": "string",

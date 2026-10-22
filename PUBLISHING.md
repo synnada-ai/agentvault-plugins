@@ -44,19 +44,18 @@ public OpenAI submission bundles**.
    configurations, transcripts, runtime binaries, or private Vault source.
    The packager checks every archived member against the source, including
    hidden manifests. Root `dist/SHA256SUMS` covers the four release ZIPs.
-5. Push the reviewed commit. To distribute publicly, first authorize changing
-   this repository's visibility and choose the source license. A private
-   repository works for collaborators with Git access; it cannot satisfy
-   Cursor or Hermes public catalog requirements. Making it public does not
-   itself approve a marketplace listing.
+5. Push the reviewed commit. This repository is public and MIT licensed,
+   including the license in each package. The separately installed Vault app
+   retains its own terms. Repository visibility does not establish directory
+   approval.
 6. When ready to release, create a version tag and a GitHub release from that
    commit and attach the four ZIPs and `SHA256SUMS`. For the initial version:
 
    ```sh
-   git tag v0.1.0
-   git push origin v0.1.0
-   gh release create v0.1.0 dist/agentvault-*-0.1.0.zip dist/SHA256SUMS \
-     --title 'Agent Vault plugins 0.1.0' --notes-file CHANGELOG.md
+   git tag v0.1.1
+   git push origin v0.1.1
+   gh release create v0.1.1 dist/agentvault-*-0.1.1.zip dist/SHA256SUMS \
+     --title 'Agent Vault plugins 0.1.1' --notes-file CHANGELOG.md
    ```
 
    These are instructions, not actions performed by the build or CI. Keep the
@@ -73,7 +72,7 @@ the documented local-plugin directory. [Setup](docs/setup-cursor.md).
 
 For the public Cursor Marketplace:
 
-1. Make the reviewed repository public after authorization.
+1. Use this public, MIT-licensed repository as the submission source.
 2. Verify the package from disk in the current Cursor IDE, including its
    configuration variables and a real authenticated search/read. Local imports
    can be restricted by Enterprise administrators.
@@ -159,36 +158,27 @@ Use Hermes 0.22.4 or later and the actual ID from `plugins list`. Pin a public
 release to a full commit SHA using a supported `--ref` flag when desired.
 [Setup](docs/setup-hermes.md).
 
-**Catalog admission is currently blocked by a verified docs/runtime conflict.**
-The current [catalog guide](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/catalog-submission)
-requires `plugin.yaml` beside a portable `plugin.json`. However, the released
-0.22.4 directory discovery code gives YAML precedence and constructs a native
-manifest with `portable = false`. Without a Python/native entrypoint, that
-package then fails to load its skill and MCP server. The catalog validator
-accepts the combination, which is why isolated manifest validation is
-insufficient. This package intentionally omits YAML, and the check script
-asserts actual portable discovery.
+Hermes 0.22.4's actual admission validator accepts this **portable-only**
+package and its security scan passes. The live catalog guide still mentions
+`plugin.yaml`, but both released validation code and catalog CI explicitly
+accept `plugin.json` without YAML. Keep YAML absent: directory discovery gives
+it precedence and would hide this package's portable skill/MCP entrypoint.
+See [source evidence](docs/sources.md).
 
-Before applying to the catalog, ask upstream to clarify or fix portable-only
-admission/discovery, then validate the final candidate on the release that
-supports the corrected layout. Do not add an empty Python entrypoint: that
-would suppress the error while leaving portable MCP unregistered. Do not use
-private Hermes internals to register the server.
+To prepare the catalog submission:
 
-Once that is resolved:
-
-1. Make the reviewed repository public after authorization.
-2. Run `hermes plugins validate ./plugins/hermes --install-deps` on the
-   supported release and run `scripts/check-hermes.py` to confirm actual load
-   discovery, not just the catalog check.
-3. Prepare an entry PR in `NousResearch/hermes-agent`, under
-   `plugin-catalog/agentvault.yaml`, with this repo, `subdir: plugins/hermes`,
-   the full **40-character release commit SHA**, and quoted version. Follow
-   the then-current entry schema; do not submit placeholder SHAs.
-4. Disclose the macOS app/runtime prerequisite, shell execution, local daemon
+1. Run `hermes plugins validate ./plugins/hermes` on the supported release,
+   then `scripts/check-hermes.py` to verify actual portable discovery. This
+   package declares no Python dependencies, so dependency installation is
+   unnecessary. Catalog CI may use `--install-deps` in its own environment.
+2. Add `plugin-catalog/agentvault.yaml` to `NousResearch/hermes-agent` with this
+   repo, `subdir: plugins/hermes`, the full **40-character tested commit SHA**,
+   and quoted version. Use the prepared entry and PR description in
+   [submissions/hermes](submissions/hermes).
+3. Disclose the macOS app/runtime prerequisite, shell execution, local daemon
    access, and Vault's provider traffic. Credentials are supplied through
    Hermes, not read from other apps or credential files.
-5. Wait for catalog CI and human review. Updates require new SHA-bump PRs;
+4. Wait for catalog CI and human review. Updates require new SHA-bump PRs;
    this plugin has no self-updater.
 
 No upstream issue, PR, or catalog submission has been sent by this repository.

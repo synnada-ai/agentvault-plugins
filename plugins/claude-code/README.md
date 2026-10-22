@@ -14,8 +14,7 @@ Find prior coding conversations and retrieve exact session revisions from Agent 
    /plugin install agentvault@synnada-agentvault
    ```
 
-   While the repository is private, Git access must be authenticated. For
-   development, use `claude --plugin-dir /absolute/path/to/plugins/claude-code`.
+   The repository is public. For development, use `claude --plugin-dir /absolute/path/to/plugins/claude-code`.
 3. Fill in the plugin's configuration prompt: `VAULT_MCP_TOKEN` is the private
    Claude Code binding token; `VAULT_HOME` is the absolute path from Vault's
    instructions (empty uses `~/.vault`); `VAULT_APP_PATH` defaults to
