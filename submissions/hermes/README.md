@@ -1,4 +1,8 @@
-# Hermes catalog candidate
+# Hermes catalog submission
+
+Submitted as [NousResearch/hermes-agent#143319](https://github.com/NousResearch/hermes-agent/pull/143319)
+on 22 October 2026; maintainer review is pending. The steps below apply to
+future submissions and SHA updates.
 
 Copy [agentvault.yaml](agentvault.yaml) to `plugin-catalog/agentvault.yaml` in
 `NousResearch/hermes-agent`, then open a PR using [pr-body.md](pr-body.md).
@@ -23,4 +27,4 @@ HERMES_SOURCE_ROOT=/absolute/path/to/hermes-agent python scripts/check-hermes.py
 Use a fresh checkout at the entry's exact SHA for the package checks. This
 package has no Python dependencies; catalog CI's `--install-deps` runs in its
 own environment. Do not upgrade or synchronize a user's Hermes environment
-just to validate the entry. No upstream PR has been opened.
+just to validate the entry.

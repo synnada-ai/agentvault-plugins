@@ -48,10 +48,13 @@ public OpenAI submission bundles**.
    including the license in each package. The separately installed Vault app
    retains its own terms. Repository visibility does not establish directory
    approval.
-6. The prepared 0.1.1 GitHub release is a **draft**, targeting tested package
+6. The 0.1.1 GitHub release targets tested package
    commit `6e0e3ded804cefb19b362736e5818c99cc061d48`. It contains the four ZIPs
-   and `SHA256SUMS`. Complete the interactive acceptance checks before
-   publishing. An authorized maintainer can publish the draft in GitHub's
+   and `SHA256SUMS`. Claude Code and Hermes CLI native retrieval checks pass;
+   Cursor retrieval remains unqualified. The maintainer authorized a
+   **prerelease with Cursor marked experimental**. Complete its acceptance
+   check before advertising a fully qualified Cursor release. An authorized
+   maintainer can publish a draft in GitHub's
    Releases UI or with:
 
    ```sh
@@ -85,12 +88,14 @@ For the public Cursor Marketplace:
    published after it appears and a clean marketplace install passes.
 
 The current docs explicitly support multi-plugin Git repositories. The signed-in
-publisher application has been prepared for Synnada (`synnada-ai`), using this
-repository and https://agentvault.run. It is not submitted. Cursor 3.27.6 loads
+publisher application was submitted on 22 October 2026 for Synnada
+(`synnada-ai`), using this repository and https://agentvault.run. The page
+confirmed receipt; review is pending. The application explicitly discloses
+that Cursor retrieval acceptance is pending. Cursor 3.27.6 loads
 the local plugin, masked token field, skill, and both MCP tools; model-driven
 search/read remains unqualified after tool-call timeouts and an account usage
-limit. Complete that check or explicitly accept the release limitation before
-submitting the publisher application. Submission is not approval.
+limit. The maintainer accepted that limitation for the prerelease and
+application. Submission is not approval.
 
 ## Codex
 
@@ -202,7 +207,10 @@ To prepare the catalog submission:
 4. Wait for catalog CI and human review. Updates require new SHA-bump PRs;
    this plugin has no self-updater.
 
-No upstream issue, PR, or catalog submission has been sent by this repository.
+Catalog submission: [NousResearch/hermes-agent#143319](https://github.com/NousResearch/hermes-agent/pull/143319),
+opened on 22 October 2026. The entry pins the tested public package commit.
+Maintainer review and upstream CI remain separate from local validation;
+the catalog listing is not yet published.
 
 ## Public OpenAI submission materials still needed
 
