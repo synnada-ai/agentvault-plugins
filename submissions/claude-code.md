@@ -10,16 +10,19 @@ is the distribution route for this Claude Code package:
 
 No Anthropic directory approval is required for repository marketplace
 distribution. Both the native plugin and marketplace pass strict validation.
-A clean installation in a disposable `CLAUDE_CONFIG_DIR` installs version
-0.1.1, enables the plugin, exposes the expected local MCP declaration, and
-correctly reports the required unset token configuration.
+Clean local and public Git installations in disposable `CLAUDE_CONFIG_DIR`
+profiles install version 0.1.1, enable the plugin, expose the expected local
+MCP declaration, and correctly report the required unset token configuration.
+Native `plugin install --config` applies the token and paths. An authenticated
+Claude Code 2.1.283 model session invokes `agentvault:vault-retrieval`, searches
+synthetic sessions, reads the exact returned revision, and cites its pinned
+URI. A separate session confirms revoked-call denial. No personal archive was
+used. The graphical secret-entry prompt was not separately tested.
 
 Users need the separately installed, running Agent Vault macOS app. Configure
 the Claude Code binding token and paths through the plugin's `userConfig`;
 the token field is sensitive. Follow [setup](../docs/setup-claude-code.md),
-including authenticated search/read and revocation before announcing a fully
-qualified interactive release. That configuration/session acceptance check
-remains separate from manifest validation and installation.
+including authenticated search/read and revocation with their own binding.
 
 Use “Agent Vault” by “Synnada”, the description in the package, website
 https://agentvault.run, plugin support at
@@ -32,3 +35,12 @@ directs paid claude.ai accounts to https://claude.ai/directory/manage. Do not
 claim web or Cowork compatibility for this local Claude Code package, or send
 an obsolete directory-submission PR to `claude-plugins-official`. Qualify the
 execution environment and applicable directory requirements first.
+
+The current directory form validates this source and allows targeting Claude
+Code only. Its scanner holds the external launcher and credential declaration
+for policy review. Submission is not complete: no privacy-policy URL covering
+this plugin was supplied, and the
+[Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
+section 1.F restricts retrieving Claude chat history. Obtain clarification on
+user-owned archived coding sessions before accepting the compliance declaration.
+Repository marketplace distribution does not imply directory approval.

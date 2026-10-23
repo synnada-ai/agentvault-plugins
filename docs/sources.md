@@ -44,18 +44,29 @@ and public review approval remain separate from package-format support.
 - Codex CLI **0.151.0**: disposable marketplace installation and native
   app-server search, pinned read, and revoked-call checks pass. No inference
   turn or user account archive is used.
-- Claude Code **2.1.283**: native plugin and marketplace validators pass, and a disposable local marketplace
-  installation loads version 0.1.1 and exposes the expected Vault MCP declaration.
-  Its interactive configuration prompt and agent-driven skill invocation
-  still need a clean-install acceptance run before public publication.
-- Cursor IDE **3.26.13** is installed. Its documented native package layout is
-  generated and the server is exercised by protocol tests; visible UI import,
-  variable entry, and agent-driven skill invocation have not been certified.
+- Claude Code **2.1.283**: native plugin and marketplace validators pass.
+  Disposable local and public Git marketplace installations load version
+  0.1.1. Native `plugin install --config` applies the sensitive token and paths.
+  An authenticated model session invokes the shared skill, searches synthetic
+  sessions, reads an exact returned revision, and cites its pinned URI. A
+  separate session correctly reports denied access after binding revocation.
+- Cursor **3.27.6**: the local plugin appears in Customize, accepts its token
+  in a masked field and its paths, and connects with both tools enabled after
+  toggling the connection. Agent sessions load the skill, but searches time
+  out before reaching the synthetic Vault daemon. The IDE account then reports
+  its Agent usage limit. Authenticated model-driven search/read and native
+  revocation acceptance remain unqualified; tool discovery is not a pass.
 - Installed Hermes **0.18.2** predates this portable format and was not changed.
   The official **0.22.4** checkout's portable parser and actual directory
   discovery validate the package using an isolated check. Its catalog admission
-  validator also passes, with a safe security scan and no warnings. A full agent session
-  and Desktop secret-configuration acceptance run remain release checks.
+  validator also passes, with a safe security scan and no warnings. A clean
+  public Git install pinned to
+  `6e0e3ded804cefb19b362736e5818c99cc061d48` also installs 0.1.1, disabled
+  as requested. With the plugin enabled and the host's optional MCP dependency
+  prepared through Hermes PM, a native CLI model session discovers the shared
+  skill, searches synthetic sessions, reads the returned exact revision, and
+  cites its pinned URI. A separate session confirms revoked-call denial.
+  Both finish with exit code 0. Desktop graphical secret entry remains untested.
 - Eight repository tests cover generation, host configuration, credential-free
   archives, launcher error redaction, quoting, identity, and syntax. Synthetic
   real-server tests cover all four caller identities, cross-client search,

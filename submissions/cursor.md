@@ -1,7 +1,7 @@
 # Cursor submission copy
 
-Prepared 22 October 2026 for version 0.1.1. This file is preparation, not a
-submitted publisher application or an approved listing.
+Publisher application submitted 22 October 2026 for version 0.1.1. The page
+confirmed receipt. Review is pending; this is not an approved listing.
 
 | Field | Value |
 | --- | --- |
@@ -31,16 +31,18 @@ It does not restore native chats or change backup settings.
 
 ## Review and next action
 
-The publisher page at https://cursor.com/marketplace/publish currently requires
-sign-in before showing the application. Its signed-in fields and attestations
-have not been verified. Use the repository URL above and identify the monorepo
-package explicitly; no separate Cursor repository is needed.
+The application at https://cursor.com/marketplace/publish uses Synnada,
+handle `synnada-ai`, this public repository, and https://agentvault.run. It
+discloses the prerelease status and pending model-driven Cursor retrieval
+acceptance. No separate Cursor repository is needed.
 
-Before submitting, complete the UI acceptance check in
-[the setup guide](../docs/setup-cursor.md): import the package, set all three
-variables, enable MCP, search a known synthetic topic, read the returned exact
-revision, and confirm denial after revocation. Protocol tests already pass
-these retrieval operations; they do not establish Cursor UI acceptance.
+Cursor 3.27.6 loads the local plugin, accepts masked token/path configuration,
+connects MCP, and exposes both tools. Agent sessions load the shared skill,
+but searches time out before reaching the test daemon and the IDE account
+then hits its Agent usage limit. The maintainer authorized submission with
+this limitation. Finish authenticated search/read and native revocation
+acceptance before removing the experimental label. Protocol checks already
+pass these operations; they do not establish Cursor agent acceptance.
 
 For a demonstration, show the prompt “Use Agent Vault to find the earlier
 discussion about token rotation, then read its exact revision and cite it.”

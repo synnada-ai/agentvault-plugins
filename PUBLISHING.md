@@ -48,22 +48,27 @@ public OpenAI submission bundles**.
    including the license in each package. The separately installed Vault app
    retains its own terms. Repository visibility does not establish directory
    approval.
-6. When ready to release, create a version tag and a GitHub release from that
-   commit and attach the four ZIPs and `SHA256SUMS`. For the initial version:
+6. The 0.1.1 GitHub release targets tested package
+   commit `6e0e3ded804cefb19b362736e5818c99cc061d48`. It contains the four ZIPs
+   and `SHA256SUMS`. Claude Code and Hermes CLI native retrieval checks pass;
+   Cursor retrieval remains unqualified. The maintainer authorized a
+   **prerelease with Cursor marked experimental**. Complete its acceptance
+   check before advertising a fully qualified Cursor release. An authorized
+   maintainer can publish a draft in GitHub's
+   Releases UI or with:
 
    ```sh
-   git tag v0.1.1
-   git push origin v0.1.1
-   gh release create v0.1.1 dist/agentvault-*-0.1.1.zip dist/SHA256SUMS \
-     --title 'Agent Vault plugins 0.1.1' --notes-file CHANGELOG.md
+   gh release edit v0.1.1 --repo synnada-ai/agentvault-plugins --draft=false
    ```
 
-   These are instructions, not actions performed by the build or CI. Keep the
-   plugin packages in this repository; do not move them into the private
-   client/server repositories. CI uploads checked ZIP artifacts but never
-   publishes a release or submits to a directory.
+   This is a manual publication step, not performed by the build or CI.
+   Future releases need a new version, commit, draft, and matching Hermes SHA
+   update. Keep the packages in this repository; no other repository is
+   needed. CI uploads checked ZIP artifacts without publishing releases.
 
 ## Cursor
+
+Prepared listing copy: [submissions/cursor.md](submissions/cursor.md).
 
 The repository has `.cursor-plugin/marketplace.json` pointing to
 `plugins/cursor`. A team with repository access can import that marketplace;
@@ -82,9 +87,15 @@ For the public Cursor Marketplace:
 4. Complete the form and respond to Cursor's review. Only call the listing
    published after it appears and a clean marketplace install passes.
 
-The current docs explicitly support multi-plugin Git repositories. The website
-requires sign-in; the actual submission form fields have not been inspected
-under a publishing account. Do not assume a form submission is approval.
+The current docs explicitly support multi-plugin Git repositories. The signed-in
+publisher application was submitted on 22 October 2026 for Synnada
+(`synnada-ai`), using this repository and https://agentvault.run. The page
+confirmed receipt; review is pending. The application explicitly discloses
+that Cursor retrieval acceptance is pending. Cursor 3.27.6 loads
+the local plugin, masked token field, skill, and both MCP tools; model-driven
+search/read remains unqualified after tool-call timeouts and an account usage
+limit. The maintainer accepted that limitation for the prerelease and
+application. Submission is not approval.
 
 ## Codex
 
@@ -124,6 +135,8 @@ server layout, and do not replace the local server with an invented HTTPS URL.
 
 ## Claude Code
 
+Prepared distribution notes: [submissions/claude-code.md](submissions/claude-code.md).
+
 `.claude-plugin/marketplace.json` already points to `plugins/claude-code`.
 Once the repository is reachable, users can install from your marketplace:
 
@@ -144,6 +157,15 @@ tested target. **This local macOS MCP package targets Claude Code**; don't
 advertise web, Cowork, or remote-machine compatibility without separately
 qualifying their execution and authentication support. Do not silently remove
 the local MCP tools to make an account listing load.
+
+Native Claude Code 2.1.283 model-driven skill invocation, authenticated search,
+revision-pinned read, and revoked-call denial pass with synthetic sessions.
+The separate directory draft has unresolved privacy-policy coverage and a
+policy question: section 1.F of the
+[Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
+restricts retrieving Claude chat history. Resolve its application to user-owned
+archives before accepting compliance declarations. The repository marketplace
+remains a separate distribution route.
 
 ## Hermes
 
@@ -171,6 +193,10 @@ To prepare the catalog submission:
    then `scripts/check-hermes.py` to verify actual portable discovery. This
    package declares no Python dependencies, so dependency installation is
    unnecessary. Catalog CI may use `--install-deps` in its own environment.
+   The host itself needs its optional MCP support. If MCP tools are unavailable
+   because the SDK is absent, prepare it through Hermes's package manager with
+   `hermes pm install --extra mcp`, then restart the affected Hermes process.
+   Do not install dependencies into Hermes with raw pip.
 2. Add `plugin-catalog/agentvault.yaml` to `NousResearch/hermes-agent` with this
    repo, `subdir: plugins/hermes`, the full **40-character tested commit SHA**,
    and quoted version. Use the prepared entry and PR description in
@@ -181,7 +207,10 @@ To prepare the catalog submission:
 4. Wait for catalog CI and human review. Updates require new SHA-bump PRs;
    this plugin has no self-updater.
 
-No upstream issue, PR, or catalog submission has been sent by this repository.
+Catalog submission: [NousResearch/hermes-agent#143319](https://github.com/NousResearch/hermes-agent/pull/143319),
+opened on 22 October 2026. The entry pins the tested public package commit.
+Maintainer review and upstream CI remain separate from local validation;
+the catalog listing is not yet published.
 
 ## Public OpenAI submission materials still needed
 
