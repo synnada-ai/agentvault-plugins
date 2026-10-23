@@ -36,8 +36,12 @@ Disclosures:
 
 Validation on 22 October 2026: released v0.22.4 admission/security scan and
 actual portable directory discovery pass. A clean public Git install at the
-entry's exact SHA installs version 0.1.1 and leaves it disabled as requested. Synthetic real-server tests pass
-search, pinned reads, pagination, and revoked-call denial for Hermes and the
-other three client identities. Full Desktop secret-entry and model-driven
-acceptance remain unqualified; these protocol tests do not claim those checks
-passed. There is no custom UI to screenshot.
+entry's exact SHA installs version 0.1.1 and leaves it disabled as requested.
+After explicit enablement and preparing the host's optional MCP extra through
+Hermes PM, a native v0.22.4 CLI model session discovers and loads the shared
+skill, searches synthetic sessions, reads the returned exact revision, and
+cites its pinned URI. A separate session confirms revoked-call denial; both
+finish with exit code 0. Synthetic real-server tests also pass search, pinned
+reads, pagination, and revoked-call denial for all four caller identities.
+Desktop graphical secret entry remains untested. There is no custom UI to
+screenshot.

@@ -84,9 +84,13 @@ For the public Cursor Marketplace:
 4. Complete the form and respond to Cursor's review. Only call the listing
    published after it appears and a clean marketplace install passes.
 
-The current docs explicitly support multi-plugin Git repositories. The website
-requires sign-in; the actual submission form fields have not been inspected
-under a publishing account. Do not assume a form submission is approval.
+The current docs explicitly support multi-plugin Git repositories. The signed-in
+publisher application has been prepared for Synnada (`synnada-ai`), using this
+repository and https://agentvault.run. It is not submitted. Cursor 3.27.6 loads
+the local plugin, masked token field, skill, and both MCP tools; model-driven
+search/read remains unqualified after tool-call timeouts and an account usage
+limit. Complete that check or explicitly accept the release limitation before
+submitting the publisher application. Submission is not approval.
 
 ## Codex
 
@@ -149,6 +153,15 @@ advertise web, Cowork, or remote-machine compatibility without separately
 qualifying their execution and authentication support. Do not silently remove
 the local MCP tools to make an account listing load.
 
+Native Claude Code 2.1.283 model-driven skill invocation, authenticated search,
+revision-pinned read, and revoked-call denial pass with synthetic sessions.
+The separate directory draft has unresolved privacy-policy coverage and a
+policy question: section 1.F of the
+[Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
+restricts retrieving Claude chat history. Resolve its application to user-owned
+archives before accepting compliance declarations. The repository marketplace
+remains a separate distribution route.
+
 ## Hermes
 
 Direct Git distribution works from the same repository's subdirectory:
@@ -175,6 +188,10 @@ To prepare the catalog submission:
    then `scripts/check-hermes.py` to verify actual portable discovery. This
    package declares no Python dependencies, so dependency installation is
    unnecessary. Catalog CI may use `--install-deps` in its own environment.
+   The host itself needs its optional MCP support. If MCP tools are unavailable
+   because the SDK is absent, prepare it through Hermes's package manager with
+   `hermes pm install --extra mcp`, then restart the affected Hermes process.
+   Do not install dependencies into Hermes with raw pip.
 2. Add `plugin-catalog/agentvault.yaml` to `NousResearch/hermes-agent` with this
    repo, `subdir: plugins/hermes`, the full **40-character tested commit SHA**,
    and quoted version. Use the prepared entry and PR description in
